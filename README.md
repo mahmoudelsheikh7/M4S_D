@@ -348,6 +348,23 @@ yt-dlp -U   # or: pipx upgrade yt-dlp
 
 ---
 
+## 💰 Support My Work
+
+If **m4s d** has been useful to you — saved you time, improved your workflow, or just made you smile — please consider supporting its continued development. Every contribution, no matter the size, goes directly toward keeping this project free, open-source, and actively maintained.
+
+**Donate via USDT (TRC20 — TRON Network):**
+
+```
+TLTRj89qEp1oPcEQjAsqiDWutd1ezd4W4y
+```
+
+> ⚠️ **Important:** Send **only USDT on the TRC20 (TRON) network** to this address.  
+> Sending any other token or using a different network (e.g. ERC20, BEP20) will result in **permanent loss of funds**.
+
+Thank you for your support — it means a lot! 🙏
+
+---
+
 ## License
 
 MIT License — see [LICENSE](LICENSE).

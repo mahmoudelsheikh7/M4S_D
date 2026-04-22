@@ -524,6 +524,89 @@ section { padding: 100px 0; position: relative; z-index: 1; }
 .win-code-block .ps-arg { color: var(--g); }
 .win-code-block .ps-cmt { color: var(--t3); }
 
+/* ── DONATE SECTION ── */
+#donate { background: rgba(0,0,0,.25); }
+.donate-card {
+  max-width: 680px; margin: 0 auto;
+  background: rgba(6,18,32,.8);
+  border: 1px solid rgba(0,255,136,.28);
+  border-radius: 8px;
+  padding: 44px 40px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 0 60px rgba(0,255,136,.06), 0 24px 80px rgba(0,0,0,.5);
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.donate-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,255,136,.55), transparent);
+}
+.donate-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,200,255,.35), transparent);
+}
+.donate-icon {
+  font-size: 2.6rem; margin-bottom: 18px; display: block;
+  filter: drop-shadow(0 0 12px rgba(0,255,136,.4));
+}
+.donate-title {
+  font-family: var(--ff-d); font-size: 1.25rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--g); text-shadow: var(--sg);
+  margin-bottom: 10px;
+}
+.donate-desc {
+  font-size: .95rem; color: var(--t2); line-height: 1.75;
+  max-width: 460px; margin: 0 auto 32px;
+}
+.donate-desc strong { color: var(--c); font-weight: 600; }
+.donate-network-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--ff-m); font-size: .68rem; letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--g); background: rgba(0,255,136,.07);
+  border: 1px solid rgba(0,255,136,.25);
+  padding: 4px 14px; border-radius: 2px;
+  margin-bottom: 22px;
+}
+.donate-network-badge .e-dot { width: 5px; height: 5px; flex-shrink: 0; }
+.donate-wallet-wrap {
+  display: flex; align-items: stretch;
+  background: rgba(3,8,14,.7);
+  border: 1px solid rgba(0,255,136,.22);
+  border-radius: 4px; overflow: hidden;
+  margin-bottom: 18px;
+}
+.donate-wallet-addr {
+  flex: 1; padding: 14px 16px;
+  font-family: var(--ff-m); font-size: .82rem;
+  color: var(--c); letter-spacing: .04em;
+  text-align: left; word-break: break-all;
+  line-height: 1.5;
+}
+.donate-copy-btn {
+  flex-shrink: 0;
+  font-family: var(--ff-d); font-size: .7rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--bg0); background: var(--g);
+  border: none; padding: 0 22px;
+  cursor: pointer;
+  transition: background .2s, box-shadow .2s;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.15);
+}
+.donate-copy-btn:hover { background: #00e87a; box-shadow: 0 0 20px rgba(0,255,136,.5); }
+.donate-copy-btn.copied {
+  background: var(--b); color: var(--bg0);
+  box-shadow: 0 0 20px rgba(0,200,255,.45);
+}
+.donate-note {
+  font-family: var(--ff-m); font-size: .72rem; color: var(--t3);
+  letter-spacing: .06em;
+}
+.donate-note strong { color: var(--o); }
+
 /* ── FOOTER ── */
 footer {
   text-align: center; padding: 64px 24px; position: relative; z-index: 1;
@@ -571,6 +654,11 @@ footer {
   .stat-item { border-right: none; border-bottom: 1px solid var(--bdr); padding: 16px 20px; }
   .stat-item:last-child { border-bottom: none; }
   .hero-ascii { display: none; }
+}
+@media (max-width: 560px) {
+  .donate-card { padding: 32px 20px; }
+  .donate-wallet-wrap { flex-direction: column; }
+  .donate-copy-btn { padding: 12px; }
 }
 </style>
 </head>
@@ -1093,6 +1181,35 @@ footer {
   </div>
 </section>
 
+<!-- ═══════════════════ DONATE ═══════════════════ -->
+<section id="donate">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag">// support the project</p>
+      <h2 class="section-title">Support My <span class="hl-g">Work</span></h2>
+      <p class="section-sub">If m4s d saved you time or helped your workflow, consider buying me a coffee — every contribution is deeply appreciated.</p>
+    </div>
+
+    <div class="donate-card">
+      <span class="donate-icon">💰</span>
+      <div class="donate-title">Donate with USDT</div>
+      <p class="donate-desc">
+        Send any amount of <strong>USDT (TRC20)</strong> to the address below.
+        Your support keeps this project free, open-source, and actively maintained.
+      </p>
+      <div class="donate-network-badge">
+        <span class="e-dot" style="width:5px;height:5px;border-radius:50%;background:var(--g);box-shadow:0 0 8px var(--g);animation:pulse 2s ease-in-out infinite;display:inline-block;flex-shrink:0;"></span>
+        USDT · TRC20 · TRON Network
+      </div>
+      <div class="donate-wallet-wrap">
+        <div class="donate-wallet-addr" id="walletAddr">TLTRj89qEp1oPcEQjAsqiDWutd1ezd4W4y</div>
+        <button class="donate-copy-btn" id="donateCopyBtn" onclick="copyWallet()">Copy</button>
+      </div>
+      <p class="donate-note">⚠ <strong>TRC20 only</strong> — sending on a different network will result in permanent loss of funds.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════ FOOTER ═══════════════════ -->
 <footer>
   <div class="footer-logo">m4s d</div>
@@ -1129,6 +1246,21 @@ function copyLinux() {
     setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2400);
   }).catch(() => {
     const btn = document.getElementById('copyLinuxBtn');
+    btn.textContent = 'Done';
+    setTimeout(() => { btn.textContent = 'Copy'; }, 2400);
+  });
+}
+
+/* ── Copy USDT wallet address ── */
+function copyWallet() {
+  const addr = document.getElementById('walletAddr').textContent.trim();
+  navigator.clipboard.writeText(addr).then(() => {
+    const btn = document.getElementById('donateCopyBtn');
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2400);
+  }).catch(() => {
+    const btn = document.getElementById('donateCopyBtn');
     btn.textContent = 'Done';
     setTimeout(() => { btn.textContent = 'Copy'; }, 2400);
   });
