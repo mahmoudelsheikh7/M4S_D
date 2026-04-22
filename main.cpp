@@ -255,7 +255,7 @@ static const Strings &getStrings(bool arabic)
 
     static const Strings ar = {
         "EN",
-        "m4s d  v2.0  —  محمل عالمي + استخلاص صوتي بالذكاء الاصطناعي",
+        "m4s d  v2.0  —  محمل من مواقع متعددة + استخلاص صوتي بالذكاء الاصطناعي",
         "<span style='font-size:17px;font-weight:700;color:#80cbc4;'>m4s d</span>"
         "<span style='font-size:11px;color:#666;'>  v2.0  —  محمل عالمي + استخلاص صوتي AI</span>",
         "⬇  تحميل الأدوات",
