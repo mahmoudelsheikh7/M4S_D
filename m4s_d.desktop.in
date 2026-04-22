@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=m4s d
+GenericName=Universal Downloader & Vocal Extractor
+Comment=Download media with yt-dlp and isolate vocals with Meta Demucs AI
+Exec=@CMAKE_INSTALL_PREFIX@/bin/m4s_d
+Icon=applications-multimedia
+Terminal=false
+Categories=AudioVideo;Network;Utility;
+Keywords=youtube;download;vocal;demucs;yt-dlp;m4a;mp4;ai;
+StartupWMClass=m4s_d
