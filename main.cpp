@@ -1,4 +1,5 @@
 #include <QApplication>
+#include <QDirIterator>
 #include <QMainWindow>
 #include <QWidget>
 #include <QVBoxLayout>
