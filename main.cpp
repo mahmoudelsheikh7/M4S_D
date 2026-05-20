@@ -1425,6 +1425,8 @@ MainWindow::~MainWindow() {
     if (m_proc) { m_proc->kill(); delete m_proc; }
 }
 
+#include "main.moc"
+
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     app.setApplicationName("m4s_d");
