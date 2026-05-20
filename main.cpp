@@ -562,7 +562,7 @@ public:
         nam = new QNetworkAccessManager();
     }
 
-    ~DownloadWorker() { delete nam; }
+    ~DownloadWorker() override;
 
     void download(const QUrl &u, const QString &dest) {
         url = u; destPath = dest;
@@ -591,6 +591,9 @@ signals:
     void progress(int pct);
     void finished(bool ok, const QString &err);
 };
+
+// Out-of-line destructor — gives GCC a key function to anchor the vtable.
+DownloadWorker::~DownloadWorker() { delete nam; }
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -652,9 +655,7 @@ public:
         centerWindow();
     }
 
-    ~MainWindow() {
-        if (m_proc) { m_proc->kill(); delete m_proc; }
-    }
+    ~MainWindow() override;
 
 protected:
     void dragEnterEvent(QDragEnterEvent *e) override {
@@ -1418,6 +1419,11 @@ private:
         }
     }
 };
+
+// Out-of-line destructor — gives GCC a key function to anchor the vtable.
+MainWindow::~MainWindow() {
+    if (m_proc) { m_proc->kill(); delete m_proc; }
+}
 
 #include "main.moc"
 
