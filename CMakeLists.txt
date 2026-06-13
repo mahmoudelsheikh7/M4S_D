@@ -9,10 +9,13 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Network)
 
+# Add resource file
+set(PROJECT_RESOURCES resources.qrc)
+
 if(WIN32)
-    qt_add_executable(m4s_d WIN32 main.cpp)
+    qt_add_executable(m4s_d WIN32 main.cpp ${PROJECT_RESOURCES})
 else()
-    qt_add_executable(m4s_d main.cpp)
+    qt_add_executable(m4s_d main.cpp ${PROJECT_RESOURCES})
 endif()
 
 target_link_libraries(m4s_d PRIVATE
