@@ -18,7 +18,7 @@ else()
     qt6_add_executable(m4s_d main.cpp ${RESOURCES})
 endif()
 
-target_link_libraries(m4s_d
+target_link_libraries(m4s_d PRIVATE
     Qt6::Core
     Qt6::Gui
     Qt6::Widgets
