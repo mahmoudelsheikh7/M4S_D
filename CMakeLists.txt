@@ -28,6 +28,8 @@ target_link_libraries(m4s_d PRIVATE
 set_target_properties(m4s_d PROPERTIES
     OUTPUT_NAME "m4s_d"
     WIN32_EXECUTABLE TRUE
+    AUTOMOC ON
+    AUTORCC ON
 )
 
 if(WIN32)
