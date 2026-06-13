@@ -1,6 +1,4 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
-    <qresource>
-        <file>fonts/segoeui.ttf</file>
-    </qresource>
+    <!-- Resources currently empty - system fonts are used by default -->
 </RCC>
