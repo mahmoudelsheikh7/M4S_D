@@ -9,16 +9,16 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Network)
 
-# Add resource file
-set(PROJECT_RESOURCES resources.qrc)
+# Create a proper source file
+qt6_add_resources(RESOURCES resources.qrc)
 
 if(WIN32)
-    qt_add_executable(m4s_d WIN32 main.cpp ${PROJECT_RESOURCES})
+    qt6_add_executable(m4s_d WIN32 main.cpp ${RESOURCES})
 else()
-    qt_add_executable(m4s_d main.cpp ${PROJECT_RESOURCES})
+    qt6_add_executable(m4s_d main.cpp ${RESOURCES})
 endif()
 
-target_link_libraries(m4s_d PRIVATE
+target_link_libraries(m4s_d
     Qt6::Core
     Qt6::Gui
     Qt6::Widgets
@@ -28,8 +28,6 @@ target_link_libraries(m4s_d PRIVATE
 set_target_properties(m4s_d PROPERTIES
     OUTPUT_NAME "m4s_d"
     WIN32_EXECUTABLE TRUE
-    AUTOMOC ON
-    AUTORCC ON
 )
 
 if(WIN32)
