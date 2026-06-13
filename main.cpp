@@ -1433,7 +1433,12 @@ int main(int argc, char *argv[]) {
     app.setOrganizationName("m4s");
     app.setApplicationVersion("2.0.0");
 
-    QFontDatabase::addApplicationFont(":/fonts/segoeui.ttf");
+    // Try to load the embedded font; if not available, system fonts will be used
+    int fontId = QFontDatabase::addApplicationFont(":/fonts/segoeui.ttf");
+    if (fontId != -1) {
+        QFont font(QFontDatabase::applicationFontFamilies(fontId).at(0));
+        app.setFont(font);
+    }
 
     MainWindow win;
     win.show();
